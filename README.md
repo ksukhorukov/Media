@@ -19,6 +19,7 @@ $ rvm use ruby-2.1.5@applift --create
 $ bundle
 $ rake db:setup
 $ rake db:seed
+$ rake test
 $ rails s
 ```
 
