@@ -2,7 +2,7 @@
 
 You could easily manage your media resources with this application.
 
-# Genetal requirements 
+# General requirements 
 
 * Rails
 * Sqlite3
