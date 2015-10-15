@@ -26,6 +26,7 @@ $ rails s
 ### API
 
 ```curl --data "word=test" http://localhost:3000/search.json```
+
 ```{"links":[{"name":"test","link":"http://localhost:3000/items/1"}]}```
 
 ### [EOF]
