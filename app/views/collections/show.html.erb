@@ -1,0 +1,33 @@
+<% unless @items.empty? %>
+  <table class="table">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Action</th>
+    </tr>
+    <% @items.each_with_index do |item, idx| %>
+      <tr>
+        <td><%= idx + 1 %></td>
+        <td><%= link_to item.name, item_path(item) %></td>
+        <td><%= Type.find(item.type_id).name %></td>
+        <td> 
+          <%= link_to "Edit", edit_item_path(item) %> |
+          <%= link_to "Delete", item, method: :delete, data: { confirm: "Are you sure?" } %>
+        </td>
+      <tr>
+    <% end %>
+  </table>
+  <div class="well" align="center">
+    <%= link_to "Create new media item", new_collection_item_path(params[:id]), class: "btn btn-lg btn-success" %>
+  </div>
+<% else %>
+<div class="row">
+    <div class="center jumbotron">
+      <h1>No items found. </h1>
+      <br/>
+      <%= link_to "Create new media item", new_collection_item_path(params[:id]), class: "btn btn-lg btn-success" %>
+    </div>
+  </div>
+<% end %>
+

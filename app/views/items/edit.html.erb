@@ -1,0 +1,32 @@
+<% provide(:title, 'Edit media item') %>
+<h1>Create media item</h1>
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+   <%= form_for  @item do |f| %>
+      <%= render 'shared/item_error_messages' %>
+
+      <%= f.label :name %>
+      <%= f.text_field :name, class: 'form-control' %>
+
+      <%= f.label :description %>
+      <%= f.text_field :description, class: 'form-control' %>
+
+      <%= f.label :url %>
+      <%= f.text_field :url, class: 'form-control' %>
+
+      <%= f.label :video %>
+      <%= f.text_field :video, class: 'form-control' %>
+
+      <%= f.label :image %>
+      <%= f.file_field :image, class: 'form-control' %>
+
+      <%= f.collection_select :type_id, Type.all, :id, :name %>
+
+      <%= f.label "Public" %><%= f.check_box :public %> <br/>
+      </br>
+
+      <%= f.submit "Edit media item", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>

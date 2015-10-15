@@ -1,0 +1,22 @@
+<% provide(:title, 'Search results') %>
+<h1>Search results</h1>
+
+
+<% unless @result.empty? %>
+  <table class="table">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Post</th>
+    </tr>
+    <% @result.each_with_index do |result, idx| %>
+      <tr>
+        <td><%= idx + 1 %>
+        <td><%= result.name %></td>
+        <td><%= link_to "Open", item_path(result) %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+<h1>No match</h1>
+<% end %>

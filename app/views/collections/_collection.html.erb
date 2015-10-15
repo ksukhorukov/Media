@@ -1,0 +1,9 @@
+<td> <%= idx + 1 %></td>
+<td><%= link_to collection.name, collection_path(collection.id)  %></td>
+<td><%= collection.description %></td>
+<td>
+  <%= link_to "Edit", edit_collection_path(collection) %> |
+  <%= link_to "Delete", collection, method: :delete, data: { confirm: "Are you sure?" } %>
+</td>
+
+

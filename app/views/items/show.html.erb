@@ -1,0 +1,24 @@
+<% provide(:title, "View #{@item.name}") %>
+<div class="container">
+  <div class="row">
+     <div class="col-lg-8">
+          <h1><%= @item.name %></h1>
+          <p class="lead">
+            by <%= link_to @user.name, user_path(@user) %>
+          </p>
+          <hr>
+          <p><span class="glyphicon glyphicon-time"></span> Posted on <%= @item.created_at.strftime("%d %b. %Y") %> at <%= @item.created_at.strftime("%H:%M") %></p>
+          <hr>
+          <% unless @item.image.nil? %>
+            <center><%= image_tag(@item.image.url, :class => "img-responsive") %></center>
+          <% end %>
+          <hr>
+          <p class="lead"><%= @item.description %></p>
+          <hr>
+          <% unless @item.video.empty? %>
+            <p class="lead"><%= link_to "Watch!", @item.video,  target: "_blank", class: "btn btn-large btn-primary" %></p>
+            <hr> 
+          <% end %>            
+      </div>
+  </div>
+</div>
