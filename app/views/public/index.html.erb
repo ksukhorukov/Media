@@ -1,0 +1,21 @@
+<% provide(:title, "Public") %>
+<% unless @results.empty? %>
+  <table class="table">
+    <tr>
+      <th>#</th>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Link</th>
+    </tr>
+    <% @results.each_with_index do |result, idx| %>
+      <tr>
+        <td><%= idx + 1 %></td>
+        <td><%= result.name %></td>
+        <td><%= result.description %></td>
+        <td><%= link_to "Open", item_path(result), target: '_blank' %></td>
+      </tr>
+    <% end %>
+  </table>
+<% else %>
+  <h1>There are no public media records</h1>
+<% end %>

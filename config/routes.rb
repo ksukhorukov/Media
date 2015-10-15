@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get    'login'   => 'sessions#new'
   get    'logout'  => 'sessions#destroy'
   post   'login'   => 'sessions#create' 
+  get    'public'  => 'public#index'
 
 
   resources :users
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :search, only: [:index, :create]
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
