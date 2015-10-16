@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   end
 
   resources :search, only: [:index, :create]
+  resources :router, only: :show
 
 
   # The priority is based upon order of creation: first created -> highest priority.

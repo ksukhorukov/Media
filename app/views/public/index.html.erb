@@ -12,7 +12,7 @@
         <td><%= idx + 1 %></td>
         <td><%= result.name %></td>
         <td><%= result.description %></td>
-        <td><%= link_to "Open", item_path(result), target: '_blank' %></td>
+        <td><%= link_to "Open", router_path(result.id), target: '_blank' %></td>
       </tr>
     <% end %>
   </table>

@@ -59,6 +59,10 @@ class ItemsController < ApplicationController
       params.require(:item).permit(:name, :description, :image, :video, :url, :public, :type_id)
    end 
 
+    def allow_public_posts
+
+    end
+
     def logged_in_user
       unless logged_in?
         store_location
