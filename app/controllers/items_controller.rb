@@ -47,9 +47,11 @@ class ItemsController < ApplicationController
   end
 
   def destroy
-    Item.where(:user_id => current_user.id).find(params[:id]).destroy
+    item = Item.where(:user_id => current_user.id).find(params[:id])
+    collection_id = item.collection_id 
+    item.destroy
     flash[:success] = "Item was deleted."
-    redirect_to items_path
+    redirect_to collection_path(collection_id)
   end
 
 

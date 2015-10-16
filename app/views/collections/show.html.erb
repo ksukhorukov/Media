@@ -9,7 +9,11 @@
     <% @items.each_with_index do |item, idx| %>
       <tr>
         <td><%= idx + 1 %></td>
-        <td><%= link_to item.name, item_path(item) %></td>
+        <% unless item.public? %>
+          <td><%= link_to item.name, item_path(item) %></td>
+        <% else %>
+          <td><%= link_to item.name, router_path(item.id) %></td>
+        <% end %>
         <td><%= Type.find(item.type_id).name %></td>
         <td> 
           <%= link_to "Edit", edit_item_path(item) %> |

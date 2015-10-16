@@ -2,7 +2,11 @@
 <div class="container">
   <div class="row">
      <div class="col-lg-8">
-          <h1><%= @item.name %></h1>
+          <% unless @item.public? %>
+            <h1><%= link_to @item.name, item_path(@item) %></h1>
+          <% else %>
+            <h1><%= link_to @item.name, router_path(@item.id) %></h1>
+          <% end %>
           <p class="lead">
             by <%= link_to @user.name, user_path(@user) %>
           </p>
@@ -18,7 +22,10 @@
           <% unless @item.video.empty? %>
             <p class="lead"><%= link_to "Watch!", @item.video,  target: "_blank", class: "btn btn-large btn-primary" %></p>
             <hr> 
-          <% end %>            
+          <% end %>    
+          <% if @item.public? %>
+            <p class="lead">Item is public</p>   
+          <% end %>
       </div>
   </div>
 </div>
